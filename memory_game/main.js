@@ -18,14 +18,6 @@ let cards = [
 ];
 
 let cardsInPlay = [];
-
-function flipCard() {
-    let cardId = this.getAttribute('data-id');
-    this.setAttribute('src', cards[cardId].cardImage);
-    cardsInPlay.push(cards[cardId].rank);
-    console.log(cards[cardId].cardImage);
-    console.log(cards[cardId].suit);
-};
 function checkForMatch() {
 
     if (cardsInPlay[0] === cardsInPlay[1]) {
@@ -35,6 +27,15 @@ function checkForMatch() {
     }
 
 }
+function flipCard() {
+    let cardId = this.getAttribute('data-id');
+    this.setAttribute('src', cards[cardId].cardImage);
+    cardsInPlay.push(cards[cardId].rank);
+    console.log(cards[cardId].cardImage);
+    console.log(cards[cardId].suit);
+    checkForMatch()
+};
+
 
 function createBoard(){
     for (let i = 0; i < cards.length; i++) {
